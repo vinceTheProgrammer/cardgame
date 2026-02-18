@@ -1,13 +1,21 @@
-use cardgame_core::{CardDef, Colour, Effect, Nodes};
+use cardgame_core::core::{state::card::{CardColor, CardDef}, types::{event::EventMatcher, trigger::{Timing, TriggerDef}}};
+
 use crate::CardRegistration;
 
 pub fn def() -> CardDef {
     CardDef {
-        name: "Draw two".into(),
-        cost: Nodes(3),
-        colour: Colour::Blue,
-        on_play: vec![Effect::Draw { amount: 1 }],
-        triggers: vec![],
+        id: 2,
+        name: "Max and Nick",
+        description: "Play a Red card.",
+        creator: "Cheese Biscuit",
+        color: CardColor::Blue,
+        nodes: -1,
+        triggers: &[TriggerDef::OnPlay {
+            PlayCardFromHand {
+                player: EffectPlayer::Owner,
+                restriction: Some(CardRestriction::Color::Red),
+            },
+        }],
     }
 }
 
