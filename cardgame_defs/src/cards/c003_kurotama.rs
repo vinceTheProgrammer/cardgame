@@ -1,13 +1,23 @@
-use cardgame_core::{CardDef, Colour, Effect, Nodes};
+use cardgame_core::core::{state::card::{CardColor, CardDef}, types::{event::EventMatcher, trigger::{Timing, TriggerDef}}};
+
 use crate::CardRegistration;
 
 pub fn def() -> CardDef {
     CardDef {
-        name: "Draw three".into(),
-        cost: Nodes(3),
-        colour: Colour::Blue,
-        on_play: vec![Effect::Draw { amount: 1 }],
-        triggers: vec![],
+        id: 3,
+        name: "Kurotama",
+        description: "Discard a card from your field.",
+        creator: "Darkboy",
+        color: CardColor::Blue,
+        nodes: 3,
+        triggers: &[TriggerDef::OnPlay {
+            effect: CardEffect::DiscardCardFromField {
+                player: EffectPlayer::Owner,
+                amount: 1,
+                restriction: None,
+                selection: SelectionRule::OwnerChooses,
+            }
+        }],
     }
 }
 
