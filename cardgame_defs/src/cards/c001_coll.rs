@@ -9,9 +9,10 @@ pub fn def() -> CardDef {
         creator: "Collision",
         color: CardColor::Blue,
         nodes: 3,
-        triggers: &[TriggerDef {
-            timing: Timing::OnPlay,
-            matcher: EventMatcher::
+        triggers: &[TriggerDef::OnPlay {
+            effect: CardEffect::DrawCard {
+                amount: 1
+            }
         }],
     }
 }
