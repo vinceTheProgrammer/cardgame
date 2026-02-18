@@ -11,7 +11,7 @@ pub fn def() -> CardDef {
         color: CardColor::Blue,
         nodes: -1,
         triggers: &[TriggerDef::OnPlay {
-            PlayCardFromHand {
+            CardEffect::PlayCardFromHand {
                 player: EffectPlayer::Owner,
                 restriction: Some(CardRestriction::Color::Red),
             },
