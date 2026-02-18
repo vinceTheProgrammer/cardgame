@@ -1,0 +1,3 @@
+[workspace]
+resolver = "3"
+members = ["cardgame_core", "cardgame_defs", "cardgame_tui"]

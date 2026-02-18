@@ -1,0 +1,12 @@
+[package]
+name = "cardgame_tui"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ratatui = "=0.30.0"
+ratatui-image = "=0.8.1"
+crossterm = "0.28"
+image = "=0.24.9"
+anyhow = "1"
+cardgame_core = { path = "../cardgame_core" }
